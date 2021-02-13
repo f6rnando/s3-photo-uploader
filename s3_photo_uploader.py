@@ -25,7 +25,7 @@ s3_client = boto3.client('s3',
                         aws_access_key_id = public,
                         aws_secret_access_key = private)
 
-os.chdir("~/Pictures")
+os.chdir(os.path.expanduser("~") + "/Pictures")
 
 for folder in os.listdir():
     if folder_pattern in folder:
@@ -35,7 +35,7 @@ for folder in os.listdir():
             if '.CR2' in file or '.tif' in file:
                 file_key = folder_name + str(file)
                 print ("Uploading " + file + " to folder " + folder_name + " in " + bucket_name + " S3 Bucket: " + file_key + "...")
-                # s3_client.upload_file(file, bucket_name, file_key)
+                s3_client.upload_file(file, bucket_name, file_key)
         os.chdir("..")
 
 print ("Upload finished. You can go to the AWS Console to check your files.")

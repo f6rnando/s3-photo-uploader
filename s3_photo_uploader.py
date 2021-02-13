@@ -1,4 +1,4 @@
-from identification import public, private
+from secrets import public, private
 
 import boto3
 import os

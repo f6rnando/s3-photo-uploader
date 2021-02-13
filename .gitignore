@@ -1,3 +1,10 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+secrets.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
